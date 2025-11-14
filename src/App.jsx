@@ -7,13 +7,13 @@ function Navbar() {
     <div className="fixed top-0 inset-x-0 z-40">
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl shadow-lg flex items-center justify-between px-5 py-3">
-          <a href="#" className="text-white font-semibold tracking-wide text-lg">Aurum Estates</a>
+          <a href="/" className="text-white font-semibold tracking-wide text-lg">Aurum Estates</a>
           <div className="hidden md:flex items-center gap-8 text-white/90">
-            <a href="#collections" className="hover:text-white transition">Collections</a>
-            <a href="#highlights" className="hover:text-white transition">Highlights</a>
-            <a href="#contact" className="hover:text-white transition">Contact</a>
+            <a href="/properti" className="hover:text-white transition">Koleksi</a>
+            <a href="#highlights" className="hover:text-white transition">Sorotan</a>
+            <a href="#contact" className="hover:text-white transition">Kontak</a>
             <a href="#contact" className="inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-4 py-2 rounded-xl hover:bg-white/90 transition">
-              <Phone className="w-4 h-4" /> Consult
+              <Phone className="w-4 h-4" /> Konsultasi
             </a>
           </div>
         </div>
@@ -34,19 +34,19 @@ function Hero() {
       <div className="relative z-10 h-full flex items-center">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-white max-w-3xl">
-            <p className="uppercase tracking-[0.3em] text-white/70 text-xs md:text-sm mb-4">Luxury • Contemporary • Urban</p>
+            <p className="uppercase tracking-[0.3em] text-white/70 text-xs md:text-sm mb-4">Mewah • Kontemporer • Urban</p>
             <h1 className="text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.1]">
-              Discover Elevated Living in the Heart of the City
+              Tingkatkan Gaya Hidup Anda di Jantung Kota
             </h1>
             <p className="mt-5 text-white/80 text-base md:text-lg max-w-2xl">
-              Curated residences and prime investments spanning exclusive houses, premium shophouses, and coveted land plots — tailored for modern lifestyles.
+              Koleksi hunian dan investasi utama: rumah mewah, shophouse premium, serta kavling strategis — dirancang untuk gaya hidup modern.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#collections" className="pointer-events-auto inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-3 rounded-xl hover:bg-white/90 transition shadow-lg">
-                Explore Collections <ArrowRight className="w-4 h-4" />
+              <a href="/properti" className="pointer-events-auto inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-3 rounded-xl hover:bg-white/90 transition shadow-lg">
+                Jelajahi Koleksi <ArrowRight className="w-4 h-4" />
               </a>
               <a href="#contact" className="pointer-events-auto inline-flex items-center gap-2 bg-transparent text-white border border-white/40 px-5 py-3 rounded-xl hover:bg-white/10 transition">
-                Schedule a Viewing
+                Jadwalkan Kunjungan
               </a>
             </div>
           </div>
@@ -73,9 +73,9 @@ function CollectionCard({ Icon, title, description, badge, accent }) {
         <p className="text-gray-600 leading-relaxed">{description}</p>
       </div>
       <div className="px-6 pb-6">
-        <button className="inline-flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all">
-          View details <ArrowRight className="w-4 h-4" />
-        </button>
+        <a href="/properti" className="inline-flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all">
+          Lihat detail <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
   )
@@ -86,30 +86,30 @@ function Collections() {
     <section id="collections" className="relative py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 md:mb-16">
-          <p className="uppercase tracking-[0.25em] text-gray-500 text-xs md:text-sm">Our Collections</p>
-          <h2 className="text-3xl md:text-4xl font-semibold mt-3">Residences and Investments</h2>
-          <p className="text-gray-600 mt-3 max-w-2xl">Select from refined homes, income-generating shophouses, and strategic land plots in premier locations.</p>
+          <p className="uppercase tracking-[0.25em] text-gray-500 text-xs md:text-sm">Koleksi Kami</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-3">Hunian & Investasi</h2>
+          <p className="text-gray-600 mt-3 max-w-2xl">Pilih rumah berkelas, shophouse bernilai sewa, dan kavling strategis di lokasi prima.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <CollectionCard
             Icon={Home}
-            title="Luxury Houses"
-            description="Architectural homes with expansive layouts, private amenities, and curated finishes."
-            badge="New"
+            title="Rumah Mewah"
+            description="Desain arsitektural, layout lapang, fasilitas privat, dan finishing terkurasi."
+            badge="Baru"
             accent="from-emerald-400/60 to-emerald-600/60"
           />
           <CollectionCard
             Icon={Building2}
-            title="Premium Shophouses"
-            description="Prime commercial-residential units in vibrant districts with high foot traffic."
-            badge="Hot"
+            title="Shophouse Premium"
+            description="Unit komersial-residensial di distrik hidup dengan traffic tinggi."
+            badge="Favorit"
             accent="from-amber-400/60 to-amber-600/60"
           />
           <CollectionCard
             Icon={MapPin}
-            title="Kavling (Land Plots)"
-            description="Strategic freehold land parcels ideal for bespoke residences or future development."
-            badge="Limited"
+            title="Kavling (Tanah)"
+            description="Lahan freehold strategis untuk rumah impian atau pengembangan masa depan."
+            badge="Terbatas"
             accent="from-sky-400/60 to-sky-600/60"
           />
         </div>
@@ -124,10 +124,10 @@ function Highlights() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
           {[
-            { label: 'Premium Locations', value: '30+' },
-            { label: 'Exclusive Listings', value: '120+' },
-            { label: 'Client Satisfaction', value: '98%' },
-            { label: 'Years Experience', value: '15+' },
+            { label: 'Lokasi Premium', value: '30+' },
+            { label: 'Listing Eksklusif', value: '120+' },
+            { label: 'Kepuasan Klien', value: '98%' },
+            { label: 'Pengalaman', value: '15+' },
           ].map((item) => (
             <div key={item.label} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <div className="text-3xl font-semibold text-gray-900">{item.value}</div>
@@ -145,9 +145,9 @@ function Featured() {
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 md:mb-16">
-          <p className="uppercase tracking-[0.25em] text-gray-500 text-xs md:text-sm">Featured</p>
-          <h2 className="text-3xl md:text-4xl font-semibold mt-3">Showcase Properties</h2>
-          <p className="text-gray-600 mt-3 max-w-2xl">A glimpse of our handpicked offerings. Get in touch for the full private catalog.</p>
+          <p className="uppercase tracking-[0.25em] text-gray-500 text-xs md:text-sm">Pilihan Unggulan</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-3">Properti Pilihan</h2>
+          <p className="text-gray-600 mt-3 max-w-2xl">Sekilas dari koleksi kami. Hubungi tim untuk katalog pribadi lengkap.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {[1,2,3].map((i) => (
@@ -156,11 +156,11 @@ function Featured() {
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-gray-900">Penthouse {i}</h3>
-                  <span className="text-sm font-medium text-gray-700">From $ {i} .2M</span>
+                  <span className="text-sm font-medium text-gray-700">Mulai $ {i} .2M</span>
                 </div>
-                <p className="text-gray-600 mt-2">Skyline vistas, private terrace, and bespoke interiors.</p>
+                <p className="text-gray-600 mt-2">Pemandangan skyline, teras privat, dan interior kustom.</p>
                 <button className="mt-4 inline-flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all">
-                  Request brochure <ArrowRight className="w-4 h-4" />
+                  Minta brosur <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -180,8 +180,8 @@ function Footer() {
           <div className="relative">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-2">
-                <h3 className="text-2xl md:text-3xl font-semibold">Book a private viewing</h3>
-                <p className="text-white/70 mt-2">Our concierge team will curate a bespoke tour based on your preferences.</p>
+                <h3 className="text-2xl md:text-3xl font-semibold">Jadwalkan private viewing</h3>
+                <p className="text-white/70 mt-2">Tim concierge kami akan menyiapkan tur sesuai preferensi Anda.</p>
               </div>
               <div className="md:justify-self-end">
                 <a href="tel:+1234567890" className="inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-3 rounded-xl hover:bg-white/90 transition">
@@ -191,7 +191,7 @@ function Footer() {
             </div>
             <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div className="text-white font-semibold">Aurum Estates</div>
-              <div className="text-white/60 text-sm">© {new Date().getFullYear()} Aurum Estates. All rights reserved.</div>
+              <div className="text-white/60 text-sm">© {new Date().getFullYear()} Aurum Estates. Seluruh hak cipta.</div>
             </div>
           </div>
         </div>
