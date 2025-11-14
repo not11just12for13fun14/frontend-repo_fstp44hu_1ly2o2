@@ -1,28 +1,214 @@
-import { useState } from 'react'
+import React from 'react'
+import Spline from '@splinetool/react-spline'
+import { Home, Building2, MapPin, Phone, ArrowRight } from 'lucide-react'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Navbar() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="fixed top-0 inset-x-0 z-40">
+      <div className="mx-auto max-w-7xl px-6 py-4">
+        <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl shadow-lg flex items-center justify-between px-5 py-3">
+          <a href="#" className="text-white font-semibold tracking-wide text-lg">Aurum Estates</a>
+          <div className="hidden md:flex items-center gap-8 text-white/90">
+            <a href="#collections" className="hover:text-white transition">Collections</a>
+            <a href="#highlights" className="hover:text-white transition">Highlights</a>
+            <a href="#contact" className="hover:text-white transition">Contact</a>
+            <a href="#contact" className="inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-4 py-2 rounded-xl hover:bg-white/90 transition">
+              <Phone className="w-4 h-4" /> Consult
+            </a>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default App
+function Hero() {
+  return (
+    <section className="relative h-[92vh] w-full overflow-hidden" aria-label="Luxury Real Estate Hero">
+      <div className="absolute inset-0">
+        <Spline scene="https://prod.spline.design/1VHYoewWfi45VYZ5/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+      </div>
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+
+      <div className="relative z-10 h-full flex items-center">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-white max-w-3xl">
+            <p className="uppercase tracking-[0.3em] text-white/70 text-xs md:text-sm mb-4">Luxury • Contemporary • Urban</p>
+            <h1 className="text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.1]">
+              Discover Elevated Living in the Heart of the City
+            </h1>
+            <p className="mt-5 text-white/80 text-base md:text-lg max-w-2xl">
+              Curated residences and prime investments spanning exclusive houses, premium shophouses, and coveted land plots — tailored for modern lifestyles.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#collections" className="pointer-events-auto inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-3 rounded-xl hover:bg-white/90 transition shadow-lg">
+                Explore Collections <ArrowRight className="w-4 h-4" />
+              </a>
+              <a href="#contact" className="pointer-events-auto inline-flex items-center gap-2 bg-transparent text-white border border-white/40 px-5 py-3 rounded-xl hover:bg-white/10 transition">
+                Schedule a Viewing
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function CollectionCard({ Icon, title, description, badge, accent }) {
+  return (
+    <div className="group relative rounded-2xl overflow-hidden bg-white dark:bg-neutral-900 border border-black/5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]">
+      <div className={`absolute inset-0 bg-gradient-to-br ${accent} opacity-0 group-hover:opacity-10 transition`} />
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 text-gray-900 group-hover:scale-105 transition">
+            <Icon className="w-6 h-6" />
+          </div>
+          {badge && (
+            <span className="text-xs font-medium px-3 py-1 rounded-full bg-black text-white">{badge}</span>
+          )}
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+        <p className="text-gray-600 leading-relaxed">{description}</p>
+      </div>
+      <div className="px-6 pb-6">
+        <button className="inline-flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all">
+          View details <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function Collections() {
+  return (
+    <section id="collections" className="relative py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-10 md:mb-16">
+          <p className="uppercase tracking-[0.25em] text-gray-500 text-xs md:text-sm">Our Collections</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-3">Residences and Investments</h2>
+          <p className="text-gray-600 mt-3 max-w-2xl">Select from refined homes, income-generating shophouses, and strategic land plots in premier locations.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <CollectionCard
+            Icon={Home}
+            title="Luxury Houses"
+            description="Architectural homes with expansive layouts, private amenities, and curated finishes."
+            badge="New"
+            accent="from-emerald-400/60 to-emerald-600/60"
+          />
+          <CollectionCard
+            Icon={Building2}
+            title="Premium Shophouses"
+            description="Prime commercial-residential units in vibrant districts with high foot traffic."
+            badge="Hot"
+            accent="from-amber-400/60 to-amber-600/60"
+          />
+          <CollectionCard
+            Icon={MapPin}
+            title="Kavling (Land Plots)"
+            description="Strategic freehold land parcels ideal for bespoke residences or future development."
+            badge="Limited"
+            accent="from-sky-400/60 to-sky-600/60"
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Highlights() {
+  return (
+    <section id="highlights" className="py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+          {[
+            { label: 'Premium Locations', value: '30+' },
+            { label: 'Exclusive Listings', value: '120+' },
+            { label: 'Client Satisfaction', value: '98%' },
+            { label: 'Years Experience', value: '15+' },
+          ].map((item) => (
+            <div key={item.label} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="text-3xl font-semibold text-gray-900">{item.value}</div>
+              <div className="mt-2 text-gray-600">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Featured() {
+  return (
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-10 md:mb-16">
+          <p className="uppercase tracking-[0.25em] text-gray-500 text-xs md:text-sm">Featured</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-3">Showcase Properties</h2>
+          <p className="text-gray-600 mt-3 max-w-2xl">A glimpse of our handpicked offerings. Get in touch for the full private catalog.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {[1,2,3].map((i) => (
+            <div key={i} className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white">
+              <div className="aspect-[4/3] bg-gradient-to-br from-gray-200 to-gray-300"></div>
+              <div className="p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-900">Penthouse {i}</h3>
+                  <span className="text-sm font-medium text-gray-700">From $ {i} .2M</span>
+                </div>
+                <p className="text-gray-600 mt-2">Skyline vistas, private terrace, and bespoke interiors.</p>
+                <button className="mt-4 inline-flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all">
+                  Request brochure <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer id="contact" className="relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="rounded-3xl p-8 md:p-12 bg-gray-900 text-white relative overflow-hidden">
+          <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+              <div className="md:col-span-2">
+                <h3 className="text-2xl md:text-3xl font-semibold">Book a private viewing</h3>
+                <p className="text-white/70 mt-2">Our concierge team will curate a bespoke tour based on your preferences.</p>
+              </div>
+              <div className="md:justify-self-end">
+                <a href="tel:+1234567890" className="inline-flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-3 rounded-xl hover:bg-white/90 transition">
+                  <Phone className="w-4 h-4" /> +1 (234) 567-890
+                </a>
+              </div>
+            </div>
+            <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="text-white font-semibold">Aurum Estates</div>
+              <div className="text-white/60 text-sm">© {new Date().getFullYear()} Aurum Estates. All rights reserved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      <Navbar />
+      <Hero />
+      <Collections />
+      <Highlights />
+      <Featured />
+      <Footer />
+    </div>
+  )
+}
